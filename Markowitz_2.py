@@ -51,7 +51,7 @@ class MyPortfolio:
     NOTE: You can modify the initialization function
     """
 
-    def __init__(self, price, exclude, lookback=50, gamma=0):
+    def __init__(self, price, exclude, lookback=100, gamma=0):
         self.price = price
         self.returns = price.pct_change().fillna(0)
         self.exclude = exclude
@@ -70,15 +70,28 @@ class MyPortfolio:
         """
         TODO: Complete Task 4 Below
         """
-        
-        
+        w_const = {
+            "XLB": 0.04,
+            "XLC": 0.11,
+            "XLE": 0.00,
+            "XLF": 0.08,
+            "XLI": 0.05,
+            "XLK": 0.31,
+            "XLP": 0.13,
+            "XLRE": 0.02,
+            "XLU": 0.06,
+            "XLV": 0.12,
+            "XLY": 0.08,
+        }
+        for a in assets:
+            self.portfolio_weights[a] = w_const[a]
         """
         TODO: Complete Task 4 Above
         """
 
         self.portfolio_weights.ffill(inplace=True)
         self.portfolio_weights.fillna(0, inplace=True)
-
+    
     def calculate_portfolio_returns(self):
         # Ensure weights are calculated
         if not hasattr(self, "portfolio_weights"):
