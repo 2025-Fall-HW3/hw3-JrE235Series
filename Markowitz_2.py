@@ -83,6 +83,19 @@ class MyPortfolio:
             "XLV": 0.12,
             "XLY": 0.08,
         }
+        w_const = {
+            "XLB" :     0.000000,
+            "XLC" :     0.000000,
+            "XLE" :     0.051741,
+            "XLF" :     0.000000,
+            "XLI" :    0.100639,
+            "XLK" :     0.567053,
+            "XLP" :     0.189832,
+            "XLRE" :    0.000000,
+            "XLU" :     0.029555,
+            "XLV" :     0.061180,
+            "XLY" :     0.000000
+        }
         for a in assets:
             self.portfolio_weights[a] = w_const[a]
         """
